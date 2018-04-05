@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-// import BookDetail from './bookdetail';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import AddRow from './addrow';
-import DeleteRow from './deleterow';
-
+import AddBookForm from '../components/add_book_form';
+import DeleteBook from '../components/deletebookbutton';
+import CancelBookButton from '../components/cancelbookbutton';
 
 export default class BookList extends Component {
   static propTypes = {
@@ -26,27 +25,43 @@ export default class BookList extends Component {
     this.props.handleSelected(book);
   };
 
-  renderAddFormComponent = () => {
-    if (!this.state.showForm) { return; }
-    return <AddRow onSubmit={this.props.onNewBook} />;
+  toggleHidden () {
+    this.setState({
+      isHidden: !this.state.isHidden
+    })
   }
 
   toggleShowForm = () => {
-    this.setState({showForm:!this.state.showForm});
+    this.setState({ showForm: !this.state.showForm })
+  }
+
+  renderAddFormComponent = () => {
+     if (this.state.showForm) {
+      return <AddBookForm onSubmit={this.props.onNewBook}  />;
+     }
+  }
+
+  renderButton = () => {
+    const text = this.state.showForm ? "Cancel" : "Add Book";
+
+    return (
+      <button onClick={this.toggleShowForm}>{text}</button>
+    )
   }
 
   render() {
     return (
       <div className='border book-list-container'>
           <div className='book-list'>
-            <button onClick={this.toggleShowForm}>Add Book</button>
+            {this.renderButton()}
             {this.renderAddFormComponent()}
             <ul style={{color: this.props.listItemColor}}>
               {this.props.books.map(function(book, i){
                 return (
                   <div key={i}>
-                    <DeleteRow handleClick={(e) => { this.props.handleDelete(book, e) }}></DeleteRow>
+                    <DeleteBook handleClick={(e) => { this.props.handleDelete(book, e) }}></DeleteBook>
                     <BookListRow book={book} handleClick={(e) => { this.handleSelect(book, e) }}>  </BookListRow>
+                    {/* <CancelBookButton /> */}
                   </div>
                 )
                }.bind(this))}

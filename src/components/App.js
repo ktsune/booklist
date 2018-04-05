@@ -38,10 +38,9 @@ export default class App extends Component {
       if (deletedBook.title !== currentBook.title) {
         updatedBooks.push(currentBook)
       }
-      console.log(deletedBook.title, currentBook.title)
     }
     this.setState({books: updatedBooks})
-    console.log(updatedBooks)
+    
     // can user the filter function as an alternative to for loop:
     // var books = this.state.books.filter(function(book) {
     //   return book.title != deletedBook.title;
