@@ -1,21 +1,25 @@
 body {
   background-color: black;
+  background-image: url("https://images.pexels.com/photos/941546/pexels-photo-941546.jpeg?cs=srgb&dl=books-clock-contemporary-941546.jpg&fm=jpg");
+  background-repeat: no-repeat;
 }
 
 .list-title {
-  border: 15px solid green;
-  background: black;
-  color: white;
+  border: 10px inset #80000063;
+  background-color: #0000004d;
+  color: black;
   font-size: 70px;
   display: block;
   padding: 50px;
   text-align: center;
+  font-family: cursive;
 }
 
 #app {
   width: 1200px;
   margin: auto;
 }
+
 .book-detail, .book-list-container {
   display: inline-block;
   vertical-align: top;
@@ -25,7 +29,9 @@ body {
 .book-detail {
   padding: 50px;
   color: white;
-  border: 15px solid green;
+  border: 10px inset #80000063;
+  background-color: #0000004d;
+  font-family: cursive;
 }
 
 .book-list-container {
@@ -33,17 +39,22 @@ body {
 }
 
 .book-list {
-  border: 15px solid green;
-  background: black;
-  color: white;
+  border: 10px inset #80000063;
+  background: clear;
+  font-color: black;
   font-size: 25px;
   padding: 25px 10px;
+  background-color: #0000004d;
+  font-family: cursive;
 }
 
 .img {
   align-items: center;
 }
 
+.list-group-item {
+  color: #f1e8e8;
+}
 
 .delete-btn, .list-group-item {
   display: inline-block;
@@ -53,7 +64,7 @@ body {
 }
 
 .delete-btn {
-  color: red;
+  color: #0d0505;
   margin-right: 10px;
   font-size: 12px;
 }
@@ -61,7 +72,7 @@ body {
 .delete-btn::after {
   content: '';
   border: 1px rgba(255, 255, 255, 0.2) solid;
-  box-shadow: 0px 0px 5px 0px #fff;
+  box-shadow: 0px 7px 15px 0px #0d0505;
   border-radius: 15px;
   height: 11px;
   width: 11px;
@@ -69,4 +80,20 @@ body {
   position: relative;
   top: -12.5px;
   left: -3.5px;
+}
+
+.label {
+  color: white;
+  font-size: 25px;
+}
+
+.save-button {
+  display: block;
+}
+
+.book-selection {
+    font-size: 70px;
+    display: block;
+    padding: 50px;
+    text-align: center
 }
